@@ -4,9 +4,10 @@ import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
+// import loginImg from "/images/loginImg.svg";
 
 const BoxContainer = styled.div`
-  width: 280px;
+  width: 500px;
   min-height: 550px;
   display: flex;
   flex-direction: column;
@@ -19,33 +20,14 @@ const BoxContainer = styled.div`
 
 const TopContainer = styled.div`
   width: 100%;
-  height: 250px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 0 1.8em;
-  padding-bottom: 5em;
 `;
 
-const BackDrop = styled(motion.div)`
-  width: 160%;
-  height: 550px;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  border-radius: 50%;
-  transform: rotate(60deg);
-  top: -290px;
-  left: -70px;
-  background: rgb(186,85,211);
-  background: linear-gradient(
-    58deg,
-  
-    rgba(186,85,211) 50%,
-    rgba(243, 172, 18, 1) 100%
-  );
 
-`;
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -74,11 +56,11 @@ const SmallText = styled.h5`
 `;
 
 const BoldText = styled.h3`
-  color: #fff;
+  color: black;
   text-align: center;
-  font-size: 22px;
+  font-size: 28px;
   transition-duration:1s;
-  font-weight: 600;
+  font-weight: 700;
   z-index: 10;
   margin: 0;
   margin-top: 7px;
@@ -136,30 +118,31 @@ export function AccountBox(props) {
       setActive("signin");
     }, 50);
   };
+  const SameLine = styled.div`
+  display:flex
+`;
 
   const contextValue = { switchToSignup, switchToSignin };
 
   return (
     <AccountContext.Provider value={contextValue}>
+      <SameLine>
+      <img style={{width:"450px",height:"450px",marginTop:"50px",marginRight:"100px"}} src={"/images/loginImg.svg"} alt="Your SVG" />
+
       <BoxContainer>
+        
         <TopContainer>
-          <BackDrop
-            initial={false}
-            animate={isExpanded ? "expanded" : "collapsed"}
-            variants={backdropVariants}
-            transition={expandingTransition}
-          />
+          
           {active === "signin" && (
             <HeaderContainer>
-            <HeaderText>Welcome to Aimed Labs</HeaderText>
-            <BoldText>By Kartikey</BoldText>
+            <BoldText>Login</BoldText>
+
             </HeaderContainer>
             
           )}
           {active === "signup" && (
             <HeaderContainer>
-            <HeaderText>Welcome to Aimed Labs</HeaderText>
-            <SmallText>Sign up now!</SmallText>
+            <BoldText>Sign up now!</BoldText>
           </HeaderContainer>
           )}
         </TopContainer>
@@ -168,6 +151,7 @@ export function AccountBox(props) {
           {active === "signup" && <SignupForm />}
         </InnerContainer>
       </BoxContainer>
+      </SameLine>
     </AccountContext.Provider>
   );
 }

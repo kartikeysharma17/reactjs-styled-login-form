@@ -16,6 +16,7 @@ export const FormContainer = styled.form`
 `;
 
 export const MutedLink = styled.a`
+margin-top:10px;
   font-size: 11px;
   color: rgba(200, 200, 200, 0.8);
   font-weight: 500;
@@ -28,6 +29,16 @@ export const BoldLink = styled.a`
   font-weight: 500;
   text-decoration: none;
   margin: 0 4px;
+`;
+export const Inputcheckbox = styled.input`
+  
+  height: 15px;
+  outline: none;
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  margin-right: 1px
+  
+  
+  
 `;
 
 export const Input = styled.input`
@@ -56,25 +67,17 @@ export const Input = styled.input`
 
 export const SubmitButton = styled.button`
   width: 100%;
-  padding: 11px 40%;
-  color: #fff;
+  display:flex;
+  justify-content:center;
+  margin-top:10px;
+  padding:10px;
+  color:white;
   font-size: 15px;
   font-weight: 600;
   border: none;
-  border-radius: 100px 100px 100px 100px;
+  border-radius: 10;
   cursor: pointer;
   
-  background: rgb(241, 196, 15);
-  background: linear-gradient(
-    58deg,
-    rgb(221,160,221) 20%,
-    rgb(221,160,221) 100%
-  );
-
-  &:hover {
-    filter: brightness(1.03);
-    transition-duration: 0.1s;
-    background: #AD75AD;
-
-  }
+  background: #1575A7;
+  
 `;
